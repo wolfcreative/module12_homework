@@ -1,4 +1,4 @@
-function ElectroDevice(name, status, watt){
+function ElectroDevice(name){
   this.name = name,
   this.status = false,
   this.color = 'white',
@@ -49,3 +49,5 @@ const basicLAMP = new DeskLamp('Обычная лампа', 'green', 50);
 basicLAMP.setStatus();
 basicLAMP.getStatus();
 console.log(basicLAMP);
+
+// Задание выполнено верно, но можно немного оптимизировать конструктор ElectroDevice. В нем определены параметры status и watt, которые никак не используются. В таком случае их лучше убрать из конструктора

@@ -2,12 +2,12 @@ class ElectroDevice{
   constructor(name, color, watt){
     this.name =   name,
     this.status = false,
-    this.color =  color ? color : 'white',
+    this.color =  color || 'white',
     this.watt =   watt
   }
   
   setStatus(){
-    this.status = this.status ? false : true;
+    this.status = !this.status;
   }
 }
 /* ----------------- */
@@ -34,12 +34,8 @@ class DeskLamp extends ElectroDevice{
     super(name, color, watt);
   }
   
-  getStatus(hours){
-    if (!this.status){
-      console.log('Невероятно! Ваша лампа отключена!');
-    } else {
-      console.log(`${this.name} потребит ${this.watt / 1000} киловатт`);
-    }
+  getStatus(){
+    console.log(this.status? `${this.name} потребит ${this.watt / 1000} киловатт` : 'Невероятно! Ваша лампа отключена!');
   }
 }
 
@@ -47,3 +43,5 @@ const basicLAMP = new DeskLamp('Обычная лампа', 'green', 50);
 // basicLAMP.setStatus();
 basicLAMP.getStatus();
 // console.log(basicLAMP);
+
+// Всё верно. Чуть выше показала, как можно упростить некоторые места в коде :)
